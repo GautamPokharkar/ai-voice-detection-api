@@ -25,11 +25,9 @@ def voice_detection(
     if x_api_key != API_KEY:
         raise HTTPException(status_code=401, detail="Invalid API key")
 
-    # 2️⃣ Audio format validation
     if request.audioFormat.lower() != "mp3":
         raise HTTPException(status_code=400, detail="Only mp3 format is supported")
 
-    # 3️⃣ Base64 MP3 → audio waveform (Person 2)
     try:
         y, sr = load_audio_from_base64(request.audioBase64)
     except Exception as e:
@@ -38,7 +36,6 @@ def voice_detection(
             detail=f"Audio processing failed: {str(e)}"
         )
 
-    
     classification, confidence, explanation = detect_ai_voice(y, sr)
 
     
