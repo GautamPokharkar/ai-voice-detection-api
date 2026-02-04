@@ -32,7 +32,10 @@ def voice_detection(
             detail=f"Audio processing failed: {str(e)}"
         )
 
-    classification, confidence, explanation = detect_ai_voice(y, sr)
+    classification, confidence, explanation = detect_ai_voice(
+    y, sr, request.language
+)
+
 
     return {
         "status": "success",
