@@ -15,7 +15,7 @@ The API is designed to be **stable, low-latency, and evaluation-ready**, followi
 ## Base URL
 
 ```
-https://<your-railway-app-url>
+
 ```
 
 ---
